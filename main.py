@@ -1,6 +1,8 @@
 from tkinter import *
 import math
 
+# TODO -> play sound after each break and work session
+
 # ---------------------------- CONSTANTS ------------------------------- #
 PINK = "#e2979c"
 RED = "#e7305b"
@@ -15,6 +17,7 @@ timer = None
 
 
 # ---------------------------- TIMER RESET ------------------------------- #
+
 
 def reset_timer():
     window.after_cancel(timer)
@@ -83,17 +86,33 @@ label_check.grid(column=2, row=4)
 canvas = Canvas(width=200, height=224, bg=YELLOW, highlightthickness=0)
 tomato_img = PhotoImage(file="tomato.png")
 canvas.create_image(100, 112, image=tomato_img)
-timer_text = canvas.create_text(100, 133, text="00:00", fill="white", font=(FONT_NAME, 35, "bold"))
+timer_text = canvas.create_text(
+    100, 133, text="00:00", fill="white", font=(FONT_NAME, 35, "bold")
+)
 canvas.grid(column=2, row=2)
 
 # Button 1 START
-button = Button(text="Start", fg="black", bg="white", font=("Arial", 10, "bold"), bd=4, relief=FLAT,
-                command=start_timer)
+button = Button(
+    text="Start",
+    fg="black",
+    bg="white",
+    font=("Arial", 10, "bold"),
+    bd=4,
+    relief=FLAT,
+    command=start_timer,
+)
 button.grid(row=3, column=1)
 
 # Button 2 Reset
-button = Button(text="Reset", fg="black", bg="white", font=("Arial", 10, "bold"), bd=4, relief=FLAT,
-                command=reset_timer)
+button = Button(
+    text="Reset",
+    fg="black",
+    bg="white",
+    font=("Arial", 10, "bold"),
+    bd=4,
+    relief=FLAT,
+    command=reset_timer,
+)
 button.grid(row=3, column=3)
 
 window.mainloop()
